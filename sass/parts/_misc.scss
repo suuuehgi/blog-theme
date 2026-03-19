@@ -88,7 +88,7 @@ main {
 }
 
 time {
-  color: var(--text-1);
+  color: var(--text-0);
 }
 
 .post-list,.tag-list {
@@ -104,7 +104,7 @@ time {
 
     .post-header {
       display: grid;
-      align-items: center;
+      align-items: baseline;
 
       @media all and (max-width: 640px) {
           grid-template-rows: auto 1fr;

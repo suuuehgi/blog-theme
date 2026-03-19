@@ -1,4 +1,4 @@
-$bg-0: #fff;
+$bg-0: #fff5eb;
 $bg-1: darken($bg-0, 2%);
 $bg-2: darken($bg-1, 5%);
 
@@ -17,7 +17,7 @@ $text-2: darken($bg-0, 30%);
 
   --border-color: var(--bg-2);
 
-  --primary-color: #ef5350;
+  --primary-color: #ff9100;
   --hover-color: white;
 
   --icon-filter: none;
