@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-25 -26.75 50 50">
+ <mask id="ellipse-eraser1">
+    <circle class="mask" r="27"/>
+    <circle r="6.5" fill="black" stroke="black" stroke-width="1" />
+    <circle cy="-22" r="4.5"        transform="rotate(0)" fill="back" stroke="black" stroke-width="1" />
+ </mask>
+ <mask id="ellipse-eraser2">
+    <circle class="mask" r="27"/>
+    <circle r="6.5" fill="black" stroke="black" stroke-width="1" />
+    <circle cy="-22" r="4.5"     transform="rotate(180)" fill="back" stroke="black" stroke-width="1" />
+ </mask>
+ <mask id="shell-eraser">
+    <circle class="mask" r="27"/>
+    <circle cy="-22" r="4.5"        fill="back" stroke="black" stroke-width="1" />
+    <circle cx="-20" cy="9" r="4.5" fill="back" stroke="black" stroke-width="1" />
+    <circle cx="20"  cy="9" r="4.5" fill="back" stroke="black" stroke-width="1" />
+ </mask>
+ <title>Atom</title>
+ <style type="text/css">
+  .path { fill:none; stroke:black; }
+  .path + .path { stroke:black; }
+  .path + .path + .path { stroke:black; }
+  .shell { fill:none; stroke:black; }
+  .nucleus { fill:black; }
+  .electron { fill:black; stroke:transparent; }
+  .mask { fill:white; }
+ </style>
+ <ellipse class="path" rx="3" ry="22" mask="url(#ellipse-eraser1)"/>
+ <ellipse class="path" rx="3" ry="22" transform="rotate(-66)" mask="url(#ellipse-eraser2)"/>
+ <ellipse class="path" rx="3" ry="22" transform="rotate(66)" mask="url(#ellipse-eraser2)"/>
+ <circle class="shell" r="22" mask="url(#shell-eraser)"/>
+ <circle class="nucleus" r="6"/>
+ <circle class="electron" cy="-22" r="4"/>
+ <circle class="electron" cx="-20" cy="9" r="4"/>
+ <circle class="electron" cx="20" cy="9" r="4"/>
+</svg>
