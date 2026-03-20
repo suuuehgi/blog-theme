@@ -2,51 +2,43 @@
     <li class="list-item">
         <section>
             {% set style = section.extra.style | default(value="normal") %}
-            {% if style in ["short", "normal"] %}
-                <div class="post-header">
+            <div class="post-header">
+                {% if style in ["short", "normal"] %}
                     <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
-
-                    <div>
-                        <h1 class="title">
-                            <a href={{ page.permalink | safe }}>{{ page.title }}</a>
-
-                            {% if page.draft %}
-                                <span class="draft-label">DRAFT</span>
-                            {% endif %}
-                        </h1>
-            {% elif style == "condensed" %}
-                    <div>
-                        <h1 class="title">
-                            <a href="{{ page.permalink }}">{{ page.title }}</a>
-                            {% if page.draft %}
-                                <span class="draft-label">DRAFT</span>
-                            {% endif %}
-                        </h1>
+                {% endif %}
+                <div>
+                    <h1 class="title">
+                        <a href={{ page.permalink | safe }}>{{ page.title }}</a>
+                        {% if page.draft %}
+                            <span class="draft-label">DRAFT</span>
+                        {% endif %}
+                    </h1>
+                    {% if style == "condensed" %}
                         <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
-            {% endif %}
-                        {% if style == "short" %}
-                            {# short rendering #}
-                        {% else %}
-                            {# default "normal" rendering #}
-                            <div class="meta">
-                                <div class="description">
-                                    {% if page.description %}
-                                        {{ page.description }}
-                                        {% set hide_read_more = true %}
-                                    {% elif page.summary %}
-                                        {{ page.summary | safe }}
-                                    {% else %}
-                                        {% set hide_read_more = true %}
-                                    {% endif %}
-                                </div>
-
-                                {% if not hide_read_more %}
-                                    <a class="readmore" href={{ page.permalink | safe }}>Read more ⟶</a>
+                    {% endif %}
+                    {% if style == "short" %}
+                        {# short rendering #}
+                    {% else %}
+                        {# default "normal" rendering #}
+                        <div class="meta">
+                            <div class="description">
+                                {% if page.description %}
+                                    <p>{{ page.description | safe }}</p>
+                                    {% set hide_read_more = true %}
+                                {% elif page.summary %}
+                                    {{ page.summary | safe }}
+                                {% else %}
+                                    {% set hide_read_more = true %}
                                 {% endif %}
                             </div>
-                        {% endif %}
-                    </div>
+
+                            {% if not hide_read_more %}
+                                <a class="readmore" href={{ page.permalink | safe }}>Read more ⟶</a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
                 </div>
+            </div>
         </section>
     </li>
 {% endmacro list_post %}
