@@ -21,7 +21,7 @@
                             <a href={{ term.permalink }}>{{ term.name }}</a>
                             {% if config.extra.taxonomies.feed_icon | default(value=false) %}
                                 &nbsp;
-                                <a href="{{ term.permalink ~ 'rss.xml' }}"><img src="/icons/social/rss.svg" style="height: 16px; width: auto; vertical-align: -0.05em;" alt="rss feed link" /></a>
+                                <a href="{{ term.permalink ~ 'rss.xml' }}" class="social"><img src="/icons/social/rss.svg" style="height: 16px; width: auto; vertical-align: -0.05em;" alt="rss feed link" /></a>
                             {% endif %}
                         </h1>
                         <small class="meta">{{ term.page_count }} page{{ term.page_count | pluralize }}</small>

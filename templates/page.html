@@ -80,7 +80,11 @@
                 {% endif %}
 
                 <section class="body">
-                    {{ page.content | safe }}
+                    {# ---> to ⟶ #}
+                    {{ page.content
+                        | replace(from="&lt;—", to="⟵")
+                        | replace(from="—&gt;", to="⟶")
+                        | safe }}
                 </section>
             </article>
         </main>
@@ -92,9 +96,9 @@
     {{ self::content(page=page) }}
 {% endblock main_content %}
 
-{% block right_content %}
+{% block left_content %}
     {# Optional table of contents #}
     {% if config.extra.toc | default(value=false) and page.toc %}
         {% include "partials/toc.html" %}
     {% endif %}
-{% endblock right_content %}
+{% endblock left_content %}

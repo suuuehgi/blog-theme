@@ -23,7 +23,7 @@
   --code-font: "Jetbrains Mono";
 
   --line-height: 1.5;
-  --page-width: 920px;
+  --page-width: 1000px;
 }
 
 html {
@@ -67,30 +67,42 @@ body {
     word-wrap: break-word;
   }
 
+  .footnote-definition p {
+    display: unset;
+  }
+
   .left-content {
     width: 100%;
 
     @media (min-width: 992px) {
-      flex: 1 1 0;
+      /* make some space for the TOC */
+      flex: 1.5 1 0;
       min-width: 0;
     }
+    @media (min-width: 1500px) {
+      /* Large desktop: Equal ratio centers the content again */
+      flex: 1 1 0;
+    }
+    // Don't move this to the TOC, it won't work
+    // FIXME: Find a workaround
+    position: sticky;
+    top: 4rem;
+    padding: 1em;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
   }
 
   .right-content {
     width: 100%;
 
     @media (min-width: 992px) {
-      flex: 1 1 0;
+      /* make some space for the TOC */
+      flex: 0.5 1 0;
       min-width: 0;
-
-    // Don't move this to the TOC, it won't work
-    // FIXME: Find a workaround
-    position: sticky;
-    top: 60px;
-    padding: 1em;
-    overflow-y: auto;
-    max-height: calc(100vh - 100px);
-
+    }
+    @media (min-width: 1500px) {
+      /* Large desktop: Equal ratio centers the content again */
+      flex: 1 1 0;
     }
 
 

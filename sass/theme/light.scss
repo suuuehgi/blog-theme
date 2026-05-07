@@ -1,10 +1,10 @@
-$bg-0: #fff5eb;
-$bg-1: darken($bg-0, 2%);
-$bg-2: darken($bg-1, 5%);
+$bg-0: #fff9eb;
+$bg-1: darken($bg-0, 1%);
+$bg-2: darken($bg-1, 25%);
 
-$text-0: darken($bg-0, 87%);
+$text-0: darken($bg-0, 100%);
 $text-1: darken($bg-0, 60%);
-$text-2: darken($bg-0, 30%);
+$text-2: darken($bg-0, 50%);
 
 :root.light {
   --text-0: #{$text-0};
