@@ -1,7 +1,51 @@
+//.toc {
+//    @media only screen and (max-width: 1320px) {
+//        display: none;
+//    }
+//
+//    li,
+//    a {
+//        font-family: sans-serif;
+//        color: var(--text-2);
+//        transition: none;
+//        border-bottom: none;
+//    }
+//
+//    a:hover {
+//        color: var(--hover-color) !important;
+//        transition: none;
+//    }
+//
+//    .heading {
+//        font-weight: 700;
+//    }
+//
+//    ul {
+//        list-style-type: none;
+//        padding-left: 1em;
+//        margin-top: 0;
+//        margin-bottom: 0;
+//    }
+//    & > ul {
+//        padding-left: 0;
+//    }
+//
+//    li.selected,
+//    li.selected > a {
+//        color: var(--text-0);
+//    }
+//
+//    .parent > a {
+//        color: var(--text-0);
+//    }
+//}
 .toc {
-    @media only screen and (max-width: 1300px) {
-        display: none;
-    }
+    /* 4. Das Sticky-Verhalten gehört sauber in die TOC-Klasse! */
+    position: sticky;
+    top: 4rem;
+    padding: 1em;
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
 
     li,
     a {
@@ -26,6 +70,7 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+
     & > ul {
         padding-left: 0;
     }

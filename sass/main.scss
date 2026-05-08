@@ -26,6 +26,11 @@
   --page-width: 1000px;
 }
 
+body {
+  max-width: 100vw;
+  overflow-x: clip;
+}
+
 html {
   background-color: var(--bg-0);
   color: var(--text-0);
@@ -71,40 +76,36 @@ body {
     display: unset;
   }
 
-  .left-content {
-    width: 100%;
+  /* --- MOBILE-FIRST ANSATZ --- */
 
-    @media (min-width: 992px) {
-      /* make some space for the TOC */
-      flex: 1.5 1 0;
-      min-width: 0;
-    }
-    @media (min-width: 1500px) {
-      /* Large desktop: Equal ratio centers the content again */
-      flex: 1 1 0;
-    }
-    // Don't move this to the TOC, it won't work
-    // FIXME: Find a workaround
-    position: sticky;
-    top: 4rem;
-    padding: 1em;
-    overflow-y: auto;
-    max-height: calc(100vh - 100px);
+  /* 1. Standardmäßig (unter 1320px) ausblenden */
+  .left-content,
+  .right-content {
+    display: none;
+    width: 100%;
   }
 
-  .right-content {
-    width: 100%;
-
-    @media (min-width: 992px) {
-      /* make some space for the TOC */
+  /* 2. Ab 1320px: Einblenden & TOC mehr Platz geben */
+  @media (min-width: 1320px) {
+    .left-content {
+      display: block;
+      flex: 1.5 1 0;
+      min-width: 0;
+      /* WICHTIG: Erlaubt dem Container, so hoch wie die gesamte Seite zu werden */
+      align-self: stretch;
+    }
+    .right-content {
+      display: block;
       flex: 0.5 1 0;
       min-width: 0;
     }
-    @media (min-width: 1500px) {
-      /* Large desktop: Equal ratio centers the content again */
+  }
+
+  /* 3. Ab 1500px: Gleichmäßig verteilen, Inhalt wieder mittig zentrieren */
+  @media (min-width: 1500px) {
+    .left-content,
+    .right-content {
       flex: 1 1 0;
     }
-
-
   }
 }

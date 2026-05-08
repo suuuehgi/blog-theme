@@ -3,9 +3,6 @@
 {% set character_type = type | default(value="comment") %}
 {% set character_position = position | default(value="right") %}
 {% set character_image = image | default(value="") %}
-<script>
-    let currentTheme = localStorage.getItem("theme-storage");
-</script>
 <div class="character-note character-{{ character_name }} character-{{ character_type }} character-{{ character_position }}">
     <div class="character-avatar">
         {% if character_image and character_image != "" %}
