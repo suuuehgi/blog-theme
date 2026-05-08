@@ -11,7 +11,7 @@
   background-color: var(--primary-color);
 }
 
-::-moz-selection {
+::selection {
   background: var(--primary-color);
   color: var(--hover-color);
   text-shadow: none;
@@ -38,7 +38,10 @@ blockquote {
 a {
   color: inherit;
   text-decoration: none;
+}
 
+// Hover-Effekte nur auf Links im Textbereich anwenden
+.content a {
   /* use colored hovering */
   &:hover {
       background-color: var(--primary-color);
@@ -50,9 +53,8 @@ a {
       background-color: var(--primary-color);
       color: var(--hover-color);
 
-      /* disable the border + vertical padding  */
-      border: none;
-      padding: 0 .2em;
+      /* disable the border */
+      border-color: var(--primary-color);
   }
 
     /* disable colored hovering for video in /talks */
@@ -63,29 +65,48 @@ a {
 }
 
 /* Only have colored links inside the text */
-main {
-  a {
-      border-bottom: 2px solid var(--primary-color);
-
-      // Make sure the underline is at the top
-      position: relative; // needed for z-index
-      z-index: 1;
-  }
-
-  // Disable colored links in:
-  // - .meta
-  // - header (socials, theme toggle)
-  // - /talks
-  // - /projects
-  .meta a, .talks-grid a, .cards a {
-    border-bottom: none;
-  }
-
-  // Don't display border on zola internal links on headers
-  .zola-anchor {
-    border-bottom: none;
-  }
+.content a {
+    border-bottom: 2px solid var(--primary-color);
+    position: relative;
+    z-index: 1;
 }
+
+/* Verhindert den farbigen Hintergrund und den Farbwechsel des Textes */
+.content .socials a,
+.content a#dark-mode-toggle {
+    &:hover {
+        background-color: transparent;
+        color: inherit;
+    }
+}
+.content nav a {
+    /* Deaktiviert die Unterstreichung in der Navigationsleiste pauschal */
+    border-bottom: none !important;
+}
+
+//main {
+//  a {
+//      border-bottom: 2px solid var(--primary-color);
+//
+//      // Make sure the underline is at the top
+//      position: relative; // needed for z-index
+//      z-index: 1;
+//  }
+//
+//  // Disable colored links in:
+//  // - .meta
+//  // - header (socials, theme toggle)
+//  // - /talks
+//  // - /projects
+//  .meta a, .talks-grid a, .cards a {
+//    border-bottom: none;
+//  }
+//
+//  // Don't display border on zola internal links on headers
+//  .zola-anchor {
+//    border-bottom: none;
+//  }
+//}
 
 time {
   color: var(--text-0);

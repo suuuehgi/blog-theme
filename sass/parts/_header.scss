@@ -52,10 +52,6 @@ nav {
 
         }
 
-        /* Don't display background on hover */
-        a:hover {
-            background-color: transparent;
-        }
       }
     }
 
@@ -75,10 +71,6 @@ nav {
                 height: 16px;
             }
 
-            /* Don't display background on hover */
-            &:hover {
-                background-color: transparent;
-            }
         }
     }
 }
@@ -95,9 +87,6 @@ nav {
     vertical-align: middle;
   }
 
-  &:hover {
-    background-color: transparent;
-  }
 }
 
 /* TODO: Is this still used? */

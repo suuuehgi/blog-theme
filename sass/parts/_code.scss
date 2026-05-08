@@ -125,19 +125,25 @@ $language-colors: (
   ),
 );
 
+// Einmalig die grundlegenden Eigenschaften definieren, die sich alle Labels teilen
+%label-shared {
+    border-radius: 0 0 0.25rem 0.25rem;
+    font-size: 12px;
+    letter-spacing: 0.025rem;
+    padding: 0.1rem 0.5rem;
+    text-align: right;
+    text-transform: uppercase;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 0.1rem;
+}
+
+// Das Mixin greift nun auf den Platzhalter zu und setzt nur die Farben
 @mixin base-label-style($bg-color, $text-color: var(--label-color)) {
-  background: $bg-color;
-  color: $text-color;
-  border-radius: 0 0 0.25rem 0.25rem;
-  font-size: 12px;
-  letter-spacing: 0.025rem;
-  padding: 0.1rem 0.5rem;
-  text-align: right;
-  text-transform: uppercase;
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin-top: 0.1rem;
+    @extend %label-shared;
+    background: $bg-color;
+    color: $text-color;
 }
 
 // Example usage within a specific class for clarity
@@ -170,9 +176,11 @@ pre {
   position: relative;
 
   mark {
-    background-color: var(
-      --highlight-color
-    ) !important; // Ensure mark uses the theme background
+    display: inline-block;
+    min-width: 100%;
+
+    background-color: var(--highlight-color) !important;
+    color: unset;
     padding: 0;
     border-radius: 0px;
   }
@@ -184,17 +192,22 @@ pre {
     padding: 0;
     border: none;
     font-family: var(--code-font);
+    display: block;
+    min-width: max-content;
 
     table {
       margin: 0;
       border-collapse: collapse;
       font-family: var(--code-font);
+      min-width: max-content;
+      width: 100%;
 
       mark {
         display: block;
+        width: 100%;
+        background-color: var(--highlight-color) !important;
         color: unset;
         padding: 0;
-        background-color: var(--highlight-color) !important;
         filter: brightness(1.2); // Example to slightly increase brightness
       }
     }
