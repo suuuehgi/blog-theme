@@ -12,11 +12,19 @@
         .character-avatar img {
             transform: scaleX(-1);
         }
+        /* Auf kleinen Bildschirmen den negativen Rand deaktivieren */
+        @media (max-width: 768px) {
+            margin-right: 0;
+        }
     }
 
     &.character-left {
         margin-left: -3rem;
         flex-direction: row;
+        /* Auf kleinen Bildschirmen den negativen Rand deaktivieren */
+        @media (max-width: 768px) {
+            margin-left: 0;
+        }
     }
 
     .character-avatar {

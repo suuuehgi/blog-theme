@@ -26,6 +26,13 @@
   --page-width: 1000px;
 }
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 html {
   background-color: var(--bg-0);
